@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>구래동 유흥업소 지도</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+        body { 
+            font-family: "Nanum Gothic", sans-serif; 
+            background: #232526;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .info {
+            color: white;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+        .info h1 {
+            margin: 0; 
+            margin-top: 10px; 
+            margin-bottom: 5px;
+        }
+        .info p {
+            margin: 0;
+        }
+        .small {
+            font-size: small;
+        }
+        a {
+            color: beige;
+            font-style: italic;
+            text-decoration : none;
+        }
+        .source {
+            float: right;
+            margin-right: 10px;
+        }
+    </style>
+    <div id="map" style="width: 100%; height: 800px;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APP_KEY&libraries=services"></script>
+    <script type="text/javascript" src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./map.js"></script>
+    <div class="info">
+        <h1><span class="fas fa-beer"></span> 구래동 유흥업소 지도</h1>
+        <p>Google Places API와 Daum Maps API를 사용해서 개발했습니다<span class="small">(다른 지역의 업소가 일부 표시될 수 있습니다).</span></p>
+        <p>
+            지도의 마커를 클릭하면 상호를 확인하실 수 있고, 스크롤이나 줌으로 지도 확대가 가능합니다. 
+            <b class="source"><i class="fab fa-github"></i><a class="button" href="https://github.com/JunhoYeo/Guraedong-Debauchery-Map">소스코드</a></b>
+        </p>
+    </div>
+</div>
+</body>
+</html>
