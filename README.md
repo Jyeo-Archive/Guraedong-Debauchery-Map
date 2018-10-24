@@ -14,4 +14,4 @@
 
 Please don't include your personal data(like your `api_key`/`APP_KEY`) or the **data of any business** when you contribute.
 
-5. modify script in `index.html` to display custom routes.
+5. Modify script in `index.html` to display custom routes.
