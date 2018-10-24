@@ -14,6 +14,10 @@
             background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
+        #map {
+            width: 100%;
+            height: 700px;
+        }
         .info {
             color: white;
             margin-left: 10px;
@@ -40,8 +44,8 @@
             margin-right: 10px;
         }
     </style>
-    <div id="map" style="width: 100%; height: 700px;"></div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APP_KEY&libraries=services"></script>
+    <div id="map"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APP_KEY&libraries=services,drawing"></script>
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="./map.js"></script>
     <div class="info">
@@ -53,5 +57,59 @@
         </p>
     </div>
 </div>
+<script>
+function drawCircle(center){
+    var circle = new daum.maps.Circle({
+        map: map,
+        center: center,  // 원의 중심좌표 입니다 
+        radius: 5, // 미터 단위의 원의 반지름입니다 
+        strokeWeight: 5, // 선의 두께입니다 
+        strokeColor: '#FF0000', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'soild', // 선의 스타일 입니다
+        fillColor: '#FFFFFF', // 채우기 색깔입니다
+        fillOpacity: 1  // 채우기 불투명도 입니다   
+    });
+}
+var linePath = [
+    new daum.maps.LatLng(37.640168, 126.640539), 
+    new daum.maps.LatLng(37.639582, 126.637663), 
+    new daum.maps.LatLng(37.638741, 126.635368), 
+    new daum.maps.LatLng(37.637917, 126.631741), 
+    new daum.maps.LatLng(37.638019, 126.631323), 
+    new daum.maps.LatLng(37.643781, 126.629360),
+    new daum.maps.LatLng(37.643458, 126.627804),
+    new daum.maps.LatLng(37.645667, 126.627120),
+    new daum.maps.LatLng(37.645771, 126.626932),
+    new daum.maps.LatLng(37.645575, 126.625925)
+];
+drawCircle(linePath[0]);
+drawCircle(linePath[linePath.length - 1]); 
+
+var markerImage = new daum.maps.MarkerImage(
+    './marker-red.png',
+    new daum.maps.Size(35, 35), 
+    new daum.maps.Point(18, 34)
+);
+var dest = new daum.maps.Marker({
+    map: map,
+    position: linePath[linePath.length - 1],
+    fillOpacity: 0.8
+});
+dest.setImage(markerImage);
+daum.maps.event.addListener(dest, 'click', function() {
+    infowindow.setContent('<div style="padding:5px;font-size:12px;">학원(G1230 구래점)</div>');
+    infowindow.open(map, dest);
+});
+
+var polyline = new daum.maps.Polyline({
+    path: linePath, // 선을 구성하는 좌표배열 입니다
+    strokeWeight: 5, // 선의 두께 입니다
+    strokeColor: '#FF0000', // 선의 색깔입니다
+    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    strokeStyle: 'solid' // 선의 스타일입니다
+});
+polyline.setMap(map);        
+</script>
 </body>
 </html>

@@ -13,3 +13,5 @@
 4. Run `python -m SimpleHTTPServer 3000` and open your browser, go to `http://localhost:3000` and tada! If this doesn't work, you may need to register the domain `http://localhost:3000` in your Kakao App that you used the `APP_KEY` with.
 
 Please don't include your personal data(like your `api_key`/`APP_KEY`) or the **data of any business** when you contribute.
+
+5. modify script in `index.html` to display custom routes.

@@ -1,7 +1,7 @@
 import requests, json, pprint
 
 def getPlace(keyword, api_key):
-    url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?'
+    url = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
     payload = { 'key': api_key, 'query': ('구래동 ' + keyword.strip()).replace(' ', '+') }
     data = json.loads(requests.get(url, params=payload).text)['results']
     result = []
